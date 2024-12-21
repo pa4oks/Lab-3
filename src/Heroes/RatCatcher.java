@@ -1,5 +1,8 @@
 package Heroes;
 
+import Exceptions.CantCatchRatInOtherLocationException;
+import Exceptions.CantListenToItselfException;
+
 public class RatCatcher extends Dog {
     private RatCatchingSkill ratCatchingSkill;
 
@@ -10,11 +13,17 @@ public class RatCatcher extends Dog {
 
     public RatCatchingSkill getRatCatchingSkill() { return ratCatchingSkill; }
 
-    public void catchRat(Rat rat) {
-        rat.setCatcher(this);
+    public void catchRat(Rat rat) throws CantCatchRatInOtherLocationException {
+        if (this.getLocation().equals(rat.getLocation())) {
+            rat.setCatcher(this);
+        }
+        else{
+            throw new CantCatchRatInOtherLocationException("Нельзя ловить крысу в другой локации");
+        }
     }
 
     public void eatRat(Rat rat) {
+        System.out.println(this.getName() + " съел крысу");
         rat.kill();
     }
 

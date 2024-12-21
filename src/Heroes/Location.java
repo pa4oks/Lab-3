@@ -22,10 +22,12 @@ import java.util.*;
     }
 
     public String getSmelling() {
+        System.out.println("пахнет " + smelling);
         return smelling;
     }
 
     public void setSmelling(String smelling) {
+        System.out.println("теперь пахнет " + smelling);
         this.smelling = smelling;
     }
 
@@ -51,10 +53,8 @@ import java.util.*;
 
     @Override
     public String toString() {
-        return "Location{" +
-                "name='" + name + '\'' +
-                ", smelling='" + smelling + '\'' +
-                ", currentVisitors=" + currentVisitors +
-                '}';
+        return "Локация" + name + '\'' +
+                ", пахнет" + smelling + '\'' +
+                ", текущие посетители" + currentVisitors;
     }
 }

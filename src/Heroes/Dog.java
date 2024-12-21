@@ -12,7 +12,9 @@ public abstract class Dog implements Movable {
         this.location = location;
     }
 
-
+    public void moveTo(Location location) {
+        this.setLocation(location);
+    }
 
     public List<Rat> getRats() { return rats; }
 
@@ -31,6 +33,7 @@ public abstract class Dog implements Movable {
     public void giveRat(Dog dog, Rat rat) {
         dog.rats.add(rat);
         this.rats.remove(rat);
+        System.out.println(this.getName() + " отдал крысу " + dog.getName());
     }
     public void removeRat(Rat rat) { rats.remove(rat); }
 
@@ -45,6 +48,7 @@ public abstract class Dog implements Movable {
             System.out.println("Dog: " + getName() + " didn't have this rat: " + rat.toString() + ".");
         }
     }*/
+
 
 
     @Override

@@ -2,9 +2,11 @@ package Heroes;
 
 //import Nonphysical.Emotion;
 
+import Exceptions.CantListenToItselfException;
+
 import java.util.*;
 
-    class Character implements Movable {
+    public class Character implements Movable {
     private String name;
     private List<Location> locationHistory = new ArrayList<>();
     private Emotion emotion;
@@ -12,7 +14,7 @@ import java.util.*;
     public Character(String name, Location initialLocation) {
         this.name = name;
         this.locationHistory.add(initialLocation);
-        this.emotion = new Emotion("Neutral", 0); // Default emotion
+        //this.emotion = new Emotion("Neutral", 0); // Default emotion
     }
 
     public String getName() { return name; }
@@ -28,8 +30,11 @@ import java.util.*;
 
     public void setEmotion(Emotion emotion) { this.emotion = emotion; }
 
-    public void listenTo(Character character){
-        System.out.println(this.getName() + "слушает" + character.getName());
+    public void listenTo(Character character) throws CantListenToItselfException {
+        if (this.equals(character)) {
+            throw new CantListenToItselfException(" Нельзя прислушаться к самому себе ");
+        }
+        else{System.out.println(this.getName() + " слушает " + character.getName());}
     }
 
 

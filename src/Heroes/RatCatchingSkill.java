@@ -1,6 +1,6 @@
 package Heroes;
 
-enum RatCatchingSkill {
+public enum RatCatchingSkill {
     BEGINNER,
     ADVANCED,
     EXPERT,
